@@ -17,8 +17,8 @@ namespace Foro.Controllers
         {
             _context = context;
         }
-        
-          public async Task<IActionResult> qwe(String name, String password)
+
+        public async Task<IActionResult> Login(String name, String password)
         {
             if (name == null || password == null)
             {
@@ -29,12 +29,13 @@ namespace Foro.Controllers
             if (user == null)
             {
                 return RedirectToAction(nameof(Index));
-               
             }
-            
-            return RedirectToAction(nameof(Contact));
-                
-           
+
+            Session.isSingin = true;
+            Session.isAdmin = "Permissions".Equals(user.Account) ? true : false;
+            return RedirectToAction(nameof(Principal));
+
+
         }
         public IActionResult Index()
         {
@@ -44,6 +45,11 @@ namespace Foro.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+
+            return View();
+        }
+        public IActionResult Principal()
+        {
 
             return View();
         }
@@ -59,6 +65,6 @@ namespace Foro.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-      
+
     }
 }

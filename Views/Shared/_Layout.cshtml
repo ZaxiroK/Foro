@@ -17,6 +17,7 @@
     </environment>
 </head>
 <body>
+    @if(Session.isSingin){
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,18 +27,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Foro</a>
+               
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if(Session.isAdmin) {
+                        <li><a asp-area="" asp-controller="User" asp-action="Index">User</a></li>
+                    }
+                    <li><a asp-area="" asp-controller="Client" asp-action="Index">Client</a></li>
+                    <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Meeting" asp-action="Index">Meeting</a></li>
+                    <li><a asp-area="" asp-controller="SupportTicket" asp-action="Index">Support Ticket</a></li>
+                    <li><a asp-area="" asp-controller="Sector" asp-action="Index">Sector</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Log out</a></li>
                 </ul>
+                
             </div>
+            
         </div>
     </nav>
+    }
     <div class="container body-content">
+        <style>
+    body{
+        background-image: url("");
+        }
+</style>
         @RenderBody()
         <hr />
         <footer>
