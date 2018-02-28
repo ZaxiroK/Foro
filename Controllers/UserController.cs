@@ -148,5 +148,12 @@ namespace Foro.Controllers
         {
             return _context.User.Any(e => e.ID == id);
         }
+       
+        
+        
+        
+            
+        
+        
     }
 }

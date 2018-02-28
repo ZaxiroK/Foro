@@ -5,11 +5,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Foro.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Foro.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MvcContext _context;
+
+        public HomeController(MvcContext context)
+        {
+            _context = context;
+        }
+        
+          public async Task<IActionResult> qwe(String name, String password)
+        {
+            if (name == null || password == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var user = await _context.User.SingleOrDefaultAsync(m => m.Name == name && m.Password == password);
+            if (user == null)
+            {
+                return RedirectToAction(nameof(Index));
+               
+            }
+            
+            return RedirectToAction(nameof(Contact));
+                
+           
+        }
         public IActionResult Index()
         {
             return View();
@@ -33,5 +59,6 @@ namespace Foro.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+      
     }
 }

@@ -8,3 +8,4 @@ C:\PrograWeb2\PrimerProyectoASP.net\Foro\obj\Debug\netcoreapp2.0\Foro.AssemblyIn
 C:\PrograWeb2\PrimerProyectoASP.net\Foro\obj\Debug\netcoreapp2.0\Foro.AssemblyInfo.cs
 C:\PrograWeb2\PrimerProyectoASP.net\Foro\obj\Debug\netcoreapp2.0\Foro.dll
 C:\PrograWeb2\PrimerProyectoASP.net\Foro\obj\Debug\netcoreapp2.0\Foro.pdb
+C:\PrograWeb2\PrimerProyectoASP.net\Foro\obj\Debug\netcoreapp2.0\Foro.csprojResolveAssemblyReference.cache
