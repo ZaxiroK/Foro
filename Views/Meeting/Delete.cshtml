@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
+@if(Session.isSingin){
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
@@ -49,3 +49,4 @@
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+}

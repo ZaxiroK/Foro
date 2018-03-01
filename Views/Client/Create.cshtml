@@ -1,13 +1,14 @@
 @model Foro.Models.Client
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Client";
 }
-
+@if(Session.isSingin){
 <h2>Create</h2>
 
 <h4>Client</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -39,8 +40,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Sector" class="control-label"></label>
-                <input asp-for="Sector" class="form-control" />
-                <span asp-validation-for="Sector" class="text-danger"></span>
+                <select asp-for="Sector" class="form-control" >
+                                
+                <option>Education</option>
+                <option>Industry</option>
+                <option>Agriculture</option>
+                <option>Manufacture</option>
+                <option>Services</option>
+                <option>Other</option>            
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -52,7 +60,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+}
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -48,8 +48,8 @@ namespace Foro.Controllers
         // GET: SupportTicket/Create
         public IActionResult Create()
         {
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address");
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account");
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard");
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace Foro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", supportTicket.ClientID);
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account", supportTicket.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", supportTicket.ClientID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name", supportTicket.UserID);
             return View(supportTicket);
         }
 
@@ -84,8 +84,8 @@ namespace Foro.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", supportTicket.ClientID);
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account", supportTicket.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", supportTicket.ClientID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name", supportTicket.UserID);
             return View(supportTicket);
         }
 
@@ -121,8 +121,8 @@ namespace Foro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", supportTicket.ClientID);
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account", supportTicket.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", supportTicket.ClientID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name", supportTicket.UserID);
             return View(supportTicket);
         }
 

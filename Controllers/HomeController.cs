@@ -39,6 +39,7 @@ namespace Foro.Controllers
         }
         public IActionResult Index()
         {
+            Session.isSingin = false;
             return View();
         }
 

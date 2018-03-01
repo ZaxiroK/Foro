@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+@if(Session.isSingin){
 <h2>Create</h2>
 
 <h4>User</h4>
@@ -27,7 +27,7 @@
                 <select asp-for="Account" class="form-control" >
                                 
                 <option>Permissions</option>
-                <option>Without Permission</option>
+                <option>Without Permissions</option>
                               
                 </select>
             </div>
@@ -41,7 +41,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+}
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -48,8 +48,8 @@ namespace Foro.Controllers
         // GET: Meeting/Create
         public IActionResult Create()
         {
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address");
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account");
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard");
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace Foro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", meeting.ClientID);
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account", meeting.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", meeting.ClientID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name", meeting.UserID);
             return View(meeting);
         }
 
@@ -84,8 +84,8 @@ namespace Foro.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", meeting.ClientID);
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account", meeting.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", meeting.ClientID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name", meeting.UserID);
             return View(meeting);
         }
 
@@ -121,8 +121,8 @@ namespace Foro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", meeting.ClientID);
-            ViewData["UserID"] = new SelectList(_context.User, "ID", "Account", meeting.UserID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", meeting.ClientID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "Name", meeting.UserID);
             return View(meeting);
         }
 

@@ -47,7 +47,7 @@ namespace Foro.Controllers
         // GET: Contact/Create
         public IActionResult Create()
         {
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address");
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace Foro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", contact.ClientID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", contact.ClientID);
             return View(contact);
         }
 
@@ -81,7 +81,7 @@ namespace Foro.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", contact.ClientID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", contact.ClientID);
             return View(contact);
         }
 
@@ -117,7 +117,7 @@ namespace Foro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Address", contact.ClientID);
+            ViewData["ClientID"] = new SelectList(_context.Client, "ID", "IdentityCard", contact.ClientID);
             return View(contact);
         }
 

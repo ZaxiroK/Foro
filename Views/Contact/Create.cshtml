@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+@if(Session.isSingin){
 <h2>Create</h2>
 
 <h4>Contact</h4>
@@ -51,7 +51,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+}
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
