@@ -20,6 +20,7 @@ namespace Foro.Controllers
 
         public async Task<IActionResult> Login(String name, String password)
         {
+            
             if (name == null || password == null)
             {
                 return RedirectToAction(nameof(Index));
@@ -28,9 +29,12 @@ namespace Foro.Controllers
             var user = await _context.User.SingleOrDefaultAsync(m => m.Name == name && m.Password == password);
             if (user == null)
             {
+                
+                TempData["Error"]= "Mejorar";
                 return RedirectToAction(nameof(Index));
+                
             }
-
+            
             Session.isSingin = true;
             Session.isAdmin = "Permissions".Equals(user.Account) ? true : false;
             return RedirectToAction(nameof(Principal));

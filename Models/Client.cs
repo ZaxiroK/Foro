@@ -7,6 +7,7 @@ namespace Foro.Models
     public class Client
     {
         public int ID { get; set; }
+        
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Identity Card is required")]
