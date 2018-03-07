@@ -11,7 +11,6 @@ namespace Foro.Models
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "User is required")]
         public int UserID { get; set; }
-        
         public virtual User User { get; set; }
         [Required(ErrorMessage = "Its is required")]
         public Boolean Virtual { get; set; }

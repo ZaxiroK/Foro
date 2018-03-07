@@ -11,7 +11,6 @@ namespace Foro.Models
         public string ProblemDetail { get; set; }
         [Required(ErrorMessage = "User is required")]
         public int UserID { get; set; }
-        
         public virtual User User { get; set; }
         [Required(ErrorMessage = "Client is required")]
         public int ClientID { get; set; }

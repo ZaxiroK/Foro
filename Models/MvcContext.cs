@@ -9,14 +9,10 @@ namespace Foro.Models
             : base(options)
         {
         }
-
         public DbSet<Foro.Models.User> User { get; set; }
         public DbSet<Foro.Models.Client> Client { get; set; }
         public DbSet<Foro.Models.Contact> Contact { get; set; }
         public DbSet<Foro.Models.Meeting> Meeting { get; set; }
         public DbSet<Foro.Models.SupportTicket> SupportTicket { get; set; }
-        
-        
-
     }
 }

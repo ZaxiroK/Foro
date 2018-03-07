@@ -8,7 +8,6 @@ namespace Foro.Models
         public int ID { get; set; }
         [Required(ErrorMessage = "Client is required")]
         public int ClientID { get; set; }
-        
         public virtual Client Client { get; set; }
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
