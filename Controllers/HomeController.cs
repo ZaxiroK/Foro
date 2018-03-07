@@ -29,7 +29,7 @@ namespace Foro.Controllers {
     return RedirectToAction(nameof(Index));
 
    }
-
+    Session.idSingin = user.ID;
    Session.isSingin = true;
    Session.isAdmin = "Permissions".Equals(user.Account) ? true : false;
    return RedirectToAction(nameof(Principal));
@@ -37,22 +37,12 @@ namespace Foro.Controllers {
 
   }
   public IActionResult Index() {
+   Session.idSingin = 0;
    Session.isSingin = false;
    return View();
   }
-
-  public IActionResult About() {
-   ViewData["Message"] = "Your application description page.";
-
-   return View();
-  }
+  
   public IActionResult Principal() {
-
-   return View();
-  }
-
-  public IActionResult Contact() {
-   ViewData["Message"] = "Your contact page.";
 
    return View();
   }

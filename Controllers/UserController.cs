@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Foro.Models;
 
+
 namespace Foro.Controllers {
  public class UserController: Controller {
   private readonly MvcContext _context;
@@ -115,6 +116,10 @@ namespace Foro.Controllers {
    var user = await _context.User.SingleOrDefaultAsync(m => m.ID == id);
    _context.User.Remove(user);
    await _context.SaveChangesAsync();
+   if(Session.idSingin == user.ID){
+       Session.idSingin = 0;
+       Session.isSingin = false;
+   }
    return RedirectToAction(nameof(Index));
   }
 

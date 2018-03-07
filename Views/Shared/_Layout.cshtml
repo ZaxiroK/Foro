@@ -29,8 +29,9 @@
             </div>
             <div class="navbar-collapse collapse">
                <ul class="nav navbar-nav">
-                  @if(Session.isAdmin) {
                   <li class="active"><a asp-area="" asp-controller="Home" asp-action="Principal" class="navbar-brand">Home</a></li>
+                  @if(Session.isAdmin) {
+                  
                   <li><a asp-area="" asp-controller="User" asp-action="Index">User</a></li>
                   }
                   <li><a asp-area="" asp-controller="Client" asp-action="Index">Client</a></li>
